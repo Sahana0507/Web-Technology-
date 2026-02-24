@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Help Desk Support System</title>
+</head>
+
+<body bgcolor="#f2f5f7">
+
+    <center>
+        <h1>HELP DESK SUPPORT SYSTEM</h1>
+        <p>Your issues, our support</p>
+    </center>
+
+    <hr width="80%">
+
+    <!-- Login Section -->
+    <h2>Login</h2>
+    <form>
+        Username:<br>
+        <input type="text"><br><br>
+
+        Password:<br>
+        <input type="password"><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <hr width="80%">
+
+    <!-- Raise Ticket -->
+    <h2>Raise a Ticket</h2>
+    <form>
+        Name:<br>
+        <input type="text"><br><br>
+
+        Email:<br>
+        <input type="email"><br><br>
+
+        Issue Category:<br>
+        <select>
+            <option>Technical</option>
+            <option>Network</option>
+            <option>Login</option>
+            <option>Other</option>
+        </select><br><br>
+
+        Priority:<br>
+        <input type="radio" name="p"> Low
+        <input type="radio" name="p"> Medium
+        <input type="radio" name="p"> High
+        <br><br>
+
+        Description:<br>
+        <textarea rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Submit Ticket">
+    </form>
+
+    <hr width="80%">
+
+    <!-- Ticket Status -->
+    <h2>Ticket Status</h2>
+    <table border="1" cellpadding="8" bgcolor="#ffffff">
+        <tr>
+            <th>Ticket ID</th>
+            <th>Issue</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>HD201</td>
+            <td>Email Problem</td>
+            <td>Open</td>
+        </tr>
+        <tr>
+            <td>HD202</td>
+            <td>System Crash</td>
+            <td>Resolved</td>
+        </tr>
+    </table>
+
+    <hr width="80%">
+
+    <!-- Contact -->
+    <h2>Contact Help Desk</h2>
+    <p>
+        Email: helpdesk@college.edu<br>
+        Phone: 98765 43210
+    </p>
+
+    <hr width="80%">
+
+    <center>
+        <p>&copy; 2026 Help Desk Support System</p>
+    </center>
+
+</body>
+</html>
