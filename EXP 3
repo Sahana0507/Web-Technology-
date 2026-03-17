@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Help Desk Support</title>
+</head>
+
+<body>
+
+<h2>Online Help Desk Support System</h2>
+
+<form action="SubmitTicket" method="post">
+
+Name:<br>
+<input type="text" name="name"><br><br>
+
+Email:<br>
+<input type="email" name="email"><br><br>
+
+Issue:<br>
+<textarea name="issue"></textarea><br><br>
+
+<input type="submit" value="Submit Ticket">
+
+</form>
+
+</body>
+</html>
