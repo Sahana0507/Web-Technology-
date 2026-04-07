@@ -1,37 +1,80 @@
-import java.io.IOException;
-import java.io.PrintWriter;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-@WebServlet("/SubmitTicket")
-public class SubmitTicketServlet extends HttpServlet {
+class Ticket {
+    String name, email, issue, status;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    Ticket(String name, String email, String issue) {
+        this.name = name;
+        this.email = email;
+        this.issue = issue;
+        this.status = "OPEN";
+    }
 
-        
-        response.setContentType("text/html");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String issue = request.getParameter("issue");
+    void display() {
+        System.out.println("----------------------------");
+        System.out.println("Name   : " + name);
+        System.out.println("Email  : " + email);
+        System.out.println("Issue  : " + issue);
+        System.out.println("Status : " + status);
+    }
+}
 
-        PrintWriter out = response.getWriter();
+public class Main {
 
-        out.println("<html>");
-        out.println("<head><title>Ticket Submitted</title></head>");
-        out.println("<body>");
+    public static void main(String[] args) {
 
-        out.println("<h2>Support Ticket Submitted Successfully!</h2>");
-        out.println("<p><strong>Name:</strong> " + name + "</p>");
-        out.println("<p><strong>Email:</strong> " + email + "</p>");
-        out.println("<p><strong>Issue:</strong> " + issue + "</p>");
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Ticket> tickets = new ArrayList<>();
 
-        out.println("<p>Our support team will contact you soon.</p>");
+        int choice;
 
-        out.println("</body>");
-        out.println("</html>");
+        do {
+            System.out.println("\n===== HELP DESK MENU =====");
+            System.out.println("1. Submit Ticket");
+            System.out.println("2. View Tickets");
+            System.out.println("3. Exit");
+
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter Name: ");
+                    String name = sc.nextLine();
+
+                    System.out.print("Enter Email: ");
+                    String email = sc.nextLine();
+
+                    System.out.print("Enter Issue: ");
+                    String issue = sc.nextLine();
+
+                    tickets.add(new Ticket(name, email, issue));
+                    System.out.println("Ticket submitted successfully!");
+                    break;
+
+                case 2:
+                    if (tickets.isEmpty()) {
+                        System.out.println("No tickets found.");
+                    } else {
+                        for (Ticket t : tickets) {
+                            t.display();
+                        }
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Exiting system...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 3);
+
+        sc.close();
     }
 }
