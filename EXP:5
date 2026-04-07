@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("===== HELP DESK SYSTEM =====");
+        System.out.println("1. Submit using GET");
+        System.out.println("2. Submit using POST");
+        System.out.print("Choose option: ");
+
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Name: ");
+        String username = sc.nextLine();
+
+        System.out.print("Enter Email: ");
+        String email = sc.nextLine();
+
+        System.out.print("Enter Password: ");
+        String password = sc.nextLine();
+
+        System.out.println("\n===== RESPONSE =====");
+
+        if (choice == 1) {
+            System.out.println("Request Method: GET");
+            System.out.println("URL: /GetPostServlet?username=" + username + "&email=" + email + "&password=" + password);
+        } else if (choice == 2) {
+            System.out.println("Request Method: POST");
+            System.out.println("Data sent in request body (hidden)");
+        } else {
+            System.out.println("Invalid choice");
+            return;
+        }
+
+        System.out.println("\n===== TICKET DETAILS =====");
+        System.out.println("Name     : " + username);
+        System.out.println("Email    : " + email);
+        System.out.println("Password : " + password);
+        System.out.println("Status   : OPEN");
+
+        sc.close();
+    }
+}
